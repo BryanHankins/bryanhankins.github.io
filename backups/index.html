@@ -1,0 +1,753 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Bryan Hankins</title>
+  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Custom Theme files -->
+  <link href="css/style.css" rel='stylesheet' type='text/css' />
+  <!-- Custom Theme files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Bryan Hankins Resume Portfolio Preface Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template" />
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <script src="https://kit.fontawesome.com/920fc672e3.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+  <!-- End -->
+  <!-- webfonts -->
+  <link href='//fonts.googleapis.com/css?family=Asap:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+  <!-- webfonts -->
+  <!---- start-smoth-scrolling---->
+  <script type="text/javascript" src="js/move-top.js"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({
+          scrollTop: $(this.hash).offset().top
+        }, 1000);
+      });
+    });
+  </script>
+  <!---- start-smoth-scrolling---->
+</head>
+
+<body>
+  <!-- container -->
+  <!-- header -->
+  <div id="home" class="header">
+    <div class="container">
+      <!-- top-hedader -->
+      <div class="top-header">
+        <!-- /logo -->
+        <!--top-nav---->
+        <div class="top-nav">
+          <div class="navigation">
+            <div class="logo">
+              <h1><a href="index.html"><span>B</span>ryan</a></h1>
+            </div>
+            <div class="navigation-right">
+              <span class="menu">         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Font Awesome Icon for Hamburger -->
+                <i class="fa-solid fa-align-justify"></i>
+              </button>
+        </span>
+
+              <nav class="link-effect-3" id="link-effect-3">
+                <ul class="nav1 nav nav-wil">
+                  <li class="active"><a data-hover="Home" href="index.html">Home</a></li>
+                  <li><a class="scroll" data-hover="About" href="#about">About</a></li>
+                  <li><a class="scroll" data-hover="Skills" href="#services">Skills</a></li>
+                  <li><a class="scroll" data-hover="Experience" href="#work">Experience</a></li>
+                  <li><a class="scroll" data-hover="Projects" href="#blogs">Projects</a></li>
+                  <li><a class="scroll" data-hover="Contact" href="#contact">Contact</a></li>
+                </ul>
+              </nav>
+              <!-- script-for-menu -->
+              <script>
+                $("span.menu").click(function () {
+                  $("ul.nav1").slideToggle(300, function () {
+                    // Animation complete.
+                  });
+                });
+              </script>
+              <!-- /script-for-menu -->
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- /top-hedader -->
+        </div>
+        <div class="banner-info">
+          <div class="col-md-7 header-right">
+            <h1>Bryan Hankins</h1>
+            <h6>Full Stack Developer</h6>
+            <div class="hero__links">
+              <a href="docs/Bryan Hankinsresume.pdf" target="_blank" class="hero__resume btn btn-white" title="Click to view my Resume">View Resume</a>
+              <ul class="hero__social">
+                <li>
+                  <a href="https://www.linkedin.com/in/bryan-hankins-8668811ab/" rel="noopener" title='LinkedIn' target="_blank">
+                    <svg version="1.1" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"></path>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/BryanHankins/" rel="noopener" target="_blank" title="Github">
+                    <svg version="1.1" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z"></path>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/hankins_br10947" rel="noopener" target="_blank" title="Twitter">
+                    <svg version="1.1" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path>
+                    </svg>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+            <ul class="address">
+
+              <li>
+                <ul class="address-text">
+                  <li><b>Name:</b></li>
+                  <li>Bryan Hankins</li>
+                </ul>
+              </li>
+              <!-- <li>
+                <ul class="address-text">
+                  <li><b>D.O.B:</b></li>
+                  <li>10-Jan-1993</li>
+                </ul>
+              </li> -->
+              <!-- <li>
+                <ul class="address-text">
+                  <li><b>Phone: </b></li>
+                  <li>(904) 341-7617</li>
+                </ul>
+              </li> -->
+              <li>
+                <ul class="address-text">
+                  <li><b>Address: </b></li>
+                  <li>Evansville, IN 47720</li>
+                </ul>
+              </li>
+              <li>
+                <ul class="address-text">
+                  <li><b>E-mail: </b></li>
+                  <li><a href="mailto:bryanhankinsdev@gmail.com">bryanhankinsdev@gmail.com</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul class="address-text">
+                  <li><b>Skype: </b></li>
+                  <li><a href="#">live:.cid.b4ebc29a26cbcea9</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+          <div class="col-md-5 header-left">
+            <img src="images/profile.jpg" alt="">
+          </div>
+          <div class="clearfix"> </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- about -->
+  <div id="about" class="about">
+    <div class="col-md-6 about-left">
+      <div id="owl-demo1" class="owl-carousel owl-carousel2">
+        <div class="item">
+          <div class="about-left-grid">
+            <h2><span>Full Stack Development</span></h2><br>
+            <i class="fa-solid fa-align-justify"></i>
+            <li>In my role as a <strong>Full Stack Developer</strong>, I have been frequently praised for creating cutting-edge software solutions and effectively </br> tackling a wide range of technical issues.</li><br>
+            <li>I manage the <strong>entire development process</strong> for next-generation applications, from gathering requirements, designing, and coding to unit testing, documentation, integration, and deployment.</li>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <ul>
+                <li class="carouselbutton"><a class="a-btn-a scroll" href="#blogs">My Work</a></li>
+                <li  class="carouselbutton"><a class="a-btn-h scroll" href="#contact">Hire Me</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="item">
+          <div class="about-left-grid">
+            <h2>My <span>Education</span></h2>
+            <p>
+              <P>
+                  <!-- <p><strong>Certification of Web Foundations  <a href=" https://www.parchment.com/u/award/b5d238f8d9179dc27ed6269f13847b22" target="_blank">Ivy Tech Community College</a>.</strong></p>
+                    <li>The study of web design, web content development, client-side/server-side scripting and network security configuration</li>
+                    <li>The study of processes that interact with data and that can be represented as data in the form of programs</li> -->
+                    <!-- <li> The use of algorithms to manipulate, store, and communicate digital information</li> -->
+                    <!-- <li>The studie about the theory of computation and the design of software systems</li> -->
+                  </p>
+
+                  <p><strong>  Over 30 Certifications </strong></p>
+                  <li>
+                    I have obtained over 30 Certification to better my lot in life please look at them on my linkedIN</li>
+              
+                  <ul>
+                    <li class="carouselbutton"><a class="a-btn-a scroll" href="#blogs">My Work</a></li>
+                    <li class="carouselbutton"><a class="a-btn-h scroll" href="#contact">Hire Me</a></li>
+                  </ul>
+                  </P>
+                  </p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="about-left-grid">
+            <h2>Free time or <span>Hobbies</span></h2><br>
+            <li>First of all, I would spend lots of time with my family.</li><br>
+            <li>Sometimes outsite of business, I really enjoy feeding ducks.</li><br>
+            <li>I like to do something to help the less fortunate.Be it help save animals or volunteer at the food kitchen</li><br>
+            <ul>
+              <li class="carouselbutton"><a class="a-btn-a scroll" href="#blogs">My Work</a></li>
+              <li class="carouselbutton"><a class="a-btn-h scroll" href="#contact">Hire Me</a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 about-right">
+
+    </div>
+    <div class="clearfix"> </div>
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <script src="js/owl.carousel.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#owl-demo1").owlCarousel({
+          items: 1,
+          lazyLoad: false,
+          autoPlay: true,
+          navigation: false,
+          navigationText: false,
+          pagination: true,
+        });
+      });
+    </script>
+    <!-- Feedback -->
+    <script>
+      $(document).ready(function () {
+        $("#owl-demo3").owlCarousel({
+          items: 1,
+          lazyLoad: false,
+          autoPlay: true,
+          navigation: false,
+          navigationText: true,
+          pagination: true,
+        });
+      });
+    </script>
+  </div>
+  <!-- /about -->
+  <!-- services -->
+  <div id="services" class="services">
+    <div class="container">
+      <div class="service-head one text-center ">
+        <h4>WHAT I DO</h4>
+        <h3>MY <span>SKILLS</span></h3>
+        <span class="border two"></span>
+      </div>
+      <!-- services-grids -->
+      <div class="">
+        <div class="">
+          <!-- <div class="col-xs-2 ">
+            <div class="hvr-rectangle-in">
+              <i class="glyphicon glyphicon-th-large"></i>
+            </div>
+          </div> -->
+       
+        <div class="col-md-6 wthree_about_right_grid">
+          <div class="col-xs-10 wthree_about_right_grid_right">
+            <h4>Front-end Development</h4>
+          <ul class="news">
+            <li>ReactJS</li>
+            <li>Angular</li>
+            <li>Wordpress</li>
+            <li>Redux</li>
+            <li>Shopify</li>
+            </ul>
+            <ul class="news">
+            <li>Three.js</li>
+            <li>NextJS</li>
+            <li>Gatsby</li>
+            <li>TypeScript</li>
+  </ul>
+  <ul class="news">
+            <li>Tailwind</li>
+            <li>Bootstrap</li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="col-md-6 wthree_about_right_grid">
+        <div class="col-xs-10 wthree_about_right_grid_right">
+          <h4>Back-End Development</h4>
+          <ul class="news">
+            <li>
+              Rust</li>
+            <li>Python</li>
+            <li>Node.js</li>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>Go</li>
+            <li>C++</li>
+          </ul>
+        </div>
+      </div>
+        <div class="clearfix"> </div>
+      
+          <div class="clearfix"> </div>
+
+        <div class="col-md-6 wthree_about_right_grid">
+          <!--<div class="col-xs-2 wthree_about_right_grid_left">
+            <div class="hvr-rectangle-in">
+              <i class="glyphicon glyphicon-gift"></i>
+            </div>
+          </div>-->
+          <div class="col-xs-10 wthree_about_right_grid_right">
+            <h4>Databases</h4>
+            <ul class="news">
+              <li>MongoDB</li>
+              <li>MySql</li>
+              <li>PostgreSQL</li>
+              <li>Oracle</li>
+              <li>SQLite</li>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 wthree_about_right_grid">
+          <!--<div class="col-xs-2 wthree_about_right_grid_left">
+            <div class="hvr-rectangle-in">
+              <i class="glyphicon glyphicon-wrench"></i>
+            </div>
+          </div>-->
+          <div class="col-xs-10 wthree_about_right_grid_right">
+            <h4>Project Tools</h4>
+            <ul class="news">
+              <li>Agile</li>
+              <li>Scrum</li>
+              <li>Git & BitBucket</li>
+              <li>Jenkins</li>
+              <li>Figma</li>
+              </ul>
+              <ul class="news">
+              <li>ManageWP</li>
+              <li>Adobe XD</li>
+              </ul>
+              <ul class="news">
+              <li>Microsoft Office</li>
+              <li>Adobe Content Management</li>
+              </ul>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 wthree_about_right_grid">
+          <!--<div class="col-xs-2 wthree_about_right_grid_left">
+            <div class="hvr-rectangle-in">
+              <i class="glyphicon glyphicon-certificate"></i>
+            </div>
+          </div>-->
+          <div class="col-xs-10 wthree_about_right_grid_right">
+            <h4>Cloud Services</h4>
+            <ul class="news">
+              <li>Amazon EC2</li>
+              <li>Amazon S3</li>
+              
+              <li>Amanzon Lambda</li>
+            </ul>
+            <ul class="news">
+              <li>Firebase</li>
+              <li>Google Map API</li>
+              <li>DigitalOcean</li>
+              <li>Heroku</li>
+            </ul>
+            <ul class="news">
+              <li>DynamoDB</li>
+              <li>DocumentDB</li>
+              <li>Netlify</li>
+              <li>cPanel</li>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 wthree_about_right_grid">
+          <!--<div class="col-xs-2 wthree_about_right_grid_left">
+            <div class="hvr-rectangle-in">
+              <i class="glyphicon glyphicon-tint"></i>
+            </div>
+          </div>-->
+          <div class="col-xs-10 wthree_about_right_grid_right">
+            <h4>Platform</h4>
+            <ul class="news">
+              <li>DevOps</li>
+              <li>Docker</li>
+              <li>Kubernet</li>
+              <li>Postman</li>
+              <li>Redis</li>
+            </ul>
+            <ul class="news">
+              <li>Amazon Web Services</li>
+              <li>Azure</li>
+              <li>BlueHost</li>
+              </ul>
+              <ul class="news">
+              <li>Google Cloud Web Hosting</li>
+              <li>Firebase</li>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  </div>
+
+  <div id="work" class="work">
+    <div class="container">
+      <div class="service-head text-center">
+        <h4>WHAT I DID</h4>
+        <h3>MY <span>EXPERIENCE</span></h3>
+        <span class="border one"></span>
+      </div>
+      <div class="time-main w3l-agile">
+        <div class="col-md-6 year-info">
+          <ul class="year">
+            <li>Work History <i class="glyphicon glyphicon-arrow-right"></i> <span id="tillDate"></span></li>
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+
+        <ul class="col-md-6 timeline">
+          <li>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-briefcase"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><a href="#" target="_blank">3D Misc<i></i></a></h4>
+              </div>
+              <div class="timeline-body">
+                <p>
+                 - Created a fully functional social media website from the ground up.  
+                </br>
+                  - Created a excel File that collects every single registered business in Evansville Indiana.</br>
+                  - Implemented AI-powered solutions to optimize business processes, including social media automation. 
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge primary"><i class="glyphicon glyphicon-briefcase"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><a href="#">Media Mix Communications</a></h4>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  - Produced multiple versions of each project, starting from basic wireframes and progressing to final production-quality designs.
+                </br>
+                  - Led the redesign of the company's website, resulting in a X% increase in user satisfaction.
+              </br>
+                  - Conducted user research and usability testing to inform design decisions.</strong>.</p>
+                  <!-- <p><strong>Knowledge is power</strong></p> -->
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-briefcase"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><a href="#" target="_blank">GeoTech Solutions <i></i></a></h4>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  - Developed a multi-page web and mobile app using React, CSS, HTML, and JavaScript, focusing on the homepage, checkout, and dashboard functionalities.</br>
+                  - Independently managed and maintained more than 20 websites.</br>
+                  - Automated server provisioning on AWS and set up CI/CD pipelines using Jenkins.</br>
+                  - Implemented Stripe to wire into a checkout form that handles API calls for credit card transactions. 
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge primary"><i class="glyphicon glyphicon-briefcase"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><a href="#">Bryan Hankins Web Services</a></h4>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  Designed and implemented a PostgreSQL database to support chat and help desk applications, using one-to-many and many-to-many relationships for optimal scalability and efficiency.                </br>
+                  - Managed full-stack web development processes, including UI design, API integration, deployment, and testing with React, Node, and REST APIs.
+              </br>
+                  - Developed and thoroughly tested client-facing applications using HTML5, CSS, JavaScript, and React for a smooth user experience.</strong>.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-briefcase"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><a href="#" target="_blank">BNY <i></i></a></h4>
+              </div>
+              <div class="timeline-body">
+                <p> 
+                  -Managed 2-weeks sprint cycle, mentoring junior developers and moving
+                  development forward. </br>
+                  - Worked in a team to develop the virtual stock trading platform, stock screener,
+                  stock alert, social trading features and automation trading. </br>
+                  - Monitored and maintained Amazon AWS Instance.
+                </p>
+                <!-- <p><strong>Great! Terrific! Wonderful!</strong></p> -->
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge primary"><i class="glyphicon glyphicon-briefcase"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><a href="#">Freelance</a></h4>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  - Developed the front end for a virtual lab/eCommerce site to sell chemicals using JavaScript, HTML, 
+                  CSS, React, Redux and GraphQL.</br>
+                  - Designed dynamic and multi-browser compatible pages using HTML, CSS, jQuery, and JavaScript.</br>
+                  - Developed various screens for the front end using JavaScript and used various predefined 
+                  components from NPM and CSS libraries
+                </strong>.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <!--//work-experience-->
+  <!-- top-grids -->
+  <div class="blog" id="blogs">
+    <div class="container">
+      <div class="service-head text-center">
+        <h4>PROJECTS</h4>
+        <h3>MY <span>Work</span></h3>
+        <div>Will show more upon request</div>
+        <span class="border one"></span>
+      </div>
+
+
+
+      <div class="container">
+
+    <div class="row news-grid">
+      <div class="col-md-6 news-text">
+        <h3><a href="https://github.com/BryanHankins/eevinone" target="_blank">Eevinone</a></h3>
+        <ul class="news">
+          <li>Python</li>
+          <li>Selenium</li>
+          <li>Flask</li>
+          <li>SCSS</li>
+          <li>NextJS</li>
+        </ul>
+        <p><strong>I combined with best pratices Scrapping 7 seperate Websites and combined the information in one place</strong></p>
+        <a href="https://github.com/BryanHankins/eevinone" target="_blank" class="read">View Github</a>
+      </div>
+      <div class="col-md-6 news-text">
+        <h3><a href="https://github.com/BryanHankins/chess-app" target="_blank">Chess App</a></h3>
+        <ul class="news">
+          <li>Python</li>
+          <li>Flask</li>
+          <li>Rust</li>
+          <li>TypeScript</li>
+          <li>MySQL</li>
+        </ul>
+        <p><strong>Created my own chess app that has now better at chess then myself</strong></p>
+        <a href="https://github.com/BryanHankins/chess-app" target="_blank" class="read">View Website</a>
+      </div>
+    </div>
+
+    <div class="row news-grid">
+      <div class="col-md-6 news-text">
+        <h3><a href="https://xilo.io" target="_blank">Social Media</a></h3>
+        <ul class="news">
+          <li>Go</li>
+          <li>Python</li>
+          <li>OAuth 2.0 </li>
+          <li>Rust</li>
+        </ul>
+        <p><strong>Here lies the backend of a Social Media Web application I created with Go </strong></p>
+        <a href="https://xilo.io" target="_blank" class="read">View Website</a>
+      </div>
+      <div class="col-md-6 news-text">
+        <h3><a href="https://github.com/BryanHankins/Octogun" target="_blank">Octogun</a></h3>
+        <ul class="news">
+          <li>JavaScript</li>
+          <li>Bootstrap</li>
+          <li>Python</li>
+          <li>SCSS</li>
+          <li>Node</li>
+        </ul>
+        <p><strong>Created a 8 directional game I made for fun</strong></p>
+        <a href="https://github.com/BryanHankins/Octogun" target="_blank" class="read">View Website</a>
+      </div>
+    </div>
+  </div>
++
+    
+
+    </div>
+  </div>
+  <!-- top-grids -->
+  <!-- /blog-pop-->
+
+
+
+
+ 
+  <!-- //blog-pop-->
+
+  <!-- /header -->
+  <div class="footer" id="contact">
+    <div class="container">
+      <div class="service-head one text-center">
+        <h4>CONTACT ME</h4>
+        <h3>GET <span>IN TOUCH WITH ME</span></h3>
+        <span class="border two"></span>
+      </div>
+      <div class="mail_us">
+        <div class="col-md-6 mail_left">
+          <div class="contact-grid1-left">
+            <div class="contact-grid1-left1">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+              <h4>Contact By Email</h4>
+              <ul>
+                <li>Primary: <a href="mailto:bryanhankinswork@gmail.com">bryanhankinsdev@gmail.com</a></li>
+                <li>
+                  <!-- <Secondary></Secondary>: <a href="mailto:comet2772@gmail.com">comet2772@gmail.com</a></li> -->
+              </ul>
+            </div>
+          </div>
+          <br/>
+          <div class="contact-grid1-left">
+            <div class="contact-grid1-left1">
+              <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+              <h4>Contact By Mobile</h4>
+              <ul>
+                <li>Mobile: 812-250-8844</li>
+              </ul>
+            </div>
+          </div><br/>
+          <div class="contact-grid1-left">
+            <div class="contact-grid1-left1">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+              <h4>Looking For Address</h4><br/>
+              <ul>
+                <li>Address:  Evansville, IN 47720, USA </li>
+              </ul>
+            </div>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 mail_right">
+          <form action="#" method="post">
+            <input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"
+              required="">
+            <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"
+              required="">
+            <input type="text" name="Mobile number" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}"
+              required="">
+            <textarea name="Message..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+            <input type="submit" value="Send">
+
+          </form>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="copy_right text-center">
+        <p class="float-left">&copy; 2024 Profile of Bryan Hankins</p>
+        <ul class="hero__social">
+          <li>
+            <a href="https://www.linkedin.com/in/bryan-hankins-8668811ab/" rel="noopener" target="_blank" title='LinkedIn'>
+              <svg version="1.1" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/BryanHankins/" rel="noopener" target="_blank" title="GitHub">
+              <svg version="1.1" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                <path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z"></path>
+              </svg>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://twitter.com/hankins_br10947" rel="noopener" target="_blank" title="Twitter">
+              <svg version="1.1" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path>
+              </svg>
+            </a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- //footer -->
+  <!-- /container -->
+  <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+  <!--start-smooth-scrolling-->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      /*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear'
+								 		};
+										*/
+      $('.progress .progress-bar').css("width",
+        function () {
+          return $(this).attr("aria-valuenow") + "%";
+        }
+      );
+      $().UItoTop({
+        easingType: 'easeOutQuart'
+      });
+
+    });
+  </script>
+  <!--end-smooth-scrolling-->
+  <!-- //for bootstrap working -->
+  <script src="js/bootstrap.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bryan Hankins — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #1a1a1a;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede8;
+    --text-muted: #888880;
+    --text-dim: #555550;
+    --accent: #e8d5a3;
+    --accent2: #7eb8a4;
+    --accent3: #c4736a;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent2);
+  }
+
+  h1.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-title em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-ghost {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-hover);
+    color: var(--text-muted);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-meta-num {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero-meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 0.3rem;
+  }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 2rem; right: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+  }
+
+  .profile-img-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 180px;
+    margin: 0 auto 1.5rem;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .profile-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+  }
+
+  .card-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-role {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.25rem;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-info-row {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .card-info-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    min-width: 52px;
+    padding-top: 2px;
+  }
+
+  .card-info-val { color: var(--text-muted); }
+  .card-info-val a { color: var(--accent); text-decoration: none; }
+
+  .card-socials {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .card-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .card-social-link:hover {
+    border-color: var(--accent);
+    background: rgba(232,213,163,0.07);
+    color: var(--accent);
+  }
+
+  /* Sections */
+  section {
+    padding: 6rem 2.5rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--accent2);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-title span { color: var(--accent); }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.85;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .highlight-box {
+    background: var(--bg3);
+    border-left: 2px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .highlight-box p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .highlight-box strong { color: var(--accent); font-weight: 500; }
+
+  .certs-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .cert-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(232,213,163,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(232,213,163,0.25);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+  }
+
+
+  .stat-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+  }
+
+  .stat-card-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-card-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.75rem;
+    transition: border-color 0.25s;
+  }
+
+  .skill-group:hover { border-color: var(--border-hover); }
+
+  .skill-group-title {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .skill-tag:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg2); }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3.5rem 2.5rem;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -0.4rem;
+    top: 0.5rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent2);
+  }
+
+  .timeline-item.featured::before {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .timeline-company {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-role {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1rem;
+  }
+
+  .timeline-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline-bullets li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .timeline-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    top: 4px;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .timeline-tag {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(126,184,164,0.1);
+    color: var(--accent2);
+    border: 1px solid rgba(126,184,164,0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .project-card.confidential {
+    border-color: rgba(232,213,163,0.12);
+  }
+
+  .project-card.confidential::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .project-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+  }
+
+  .project-type-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .badge-nda {
+    background: rgba(232,213,163,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(232,213,163,0.2);
+  }
+
+  .badge-open {
+    background: rgba(126,184,164,0.1);
+    color: var(--accent2);
+    border: 1px solid rgba(126,184,164,0.2);
+  }
+
+  .badge-ai {
+    background: rgba(196,115,106,0.1);
+    color: var(--accent3);
+    border: 1px solid rgba(196,115,106,0.2);
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+    color: var(--text);
+  }
+
+  .project-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .project-title a:hover { color: var(--accent); }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+  }
+
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+    margin-top: auto;
+  }
+
+  .project-link:hover { color: var(--accent); }
+  .project-link::after { content: '↗'; font-size: 0.8em; }
+
+  .confidential-note {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px dashed var(--border);
+    padding: 0.5rem 0.85rem;
+    border-radius: 2px;
+    display: inline-block;
+    margin-top: auto;
+  }
+
+  .impact-metric {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.15rem;
+  }
+
+  .impact-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* CONTACT */
+  #contact { background: var(--bg2); }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-item:first-child { border-top: 1px solid var(--border); }
+
+  .contact-item-label {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .contact-item-val {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .contact-item-val a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .contact-item-val a:hover { opacity: 0.8; }
+
+  /* Contact Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .form-input, .form-textarea {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .form-submit {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { opacity: 0.88; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-text {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .footer-social-link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-social-link:hover { color: var(--accent); }
+
+  /* Back to top */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    width: 40px; height: 40px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+    z-index: 50;
+  }
+
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-left > *:nth-child(6) { animation-delay: 0.6s; }
+
+  .hero-card {
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    #hero { padding: 7rem 1.25rem 3rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-card { max-width: 380px; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-layout { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .skills-layout { grid-template-columns: 1fr; }
+    .stat-cards { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-meta { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#hero" class="nav-logo"><span>B</span>ryan Hankins</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="docs/Bryan Hankinsresume.pdf" target="_blank" class="nav-cta">View Resume</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid container">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Available for new opportunities</div>
+      <h1 class="hero-name">Bryan<br>Hankins</h1>
+      <p class="hero-title">Full Stack Developer &amp; <em>AI Engineer</em></p>
+      <p class="hero-desc">6+ years building production-grade applications across the full stack — from AI-powered medical platforms and enterprise VM orchestration to social apps and trading systems. Evansville, IN.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-num">6+</span>
+          <span class="hero-meta-label">Years Experience</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-num">30+</span>
+          <span class="hero-meta-label">Certifications</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-num">80%</span>
+          <span class="hero-meta-label">AI Coding Accuracy</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-num">$1M+</span>
+          <span class="hero-meta-label">Cost Savings Delivered</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="hero-card">
+        <div class="profile-img-wrap">
+          <img src="images/profile.jpg" alt="Bryan Hankins">
+        </div>
+        <div class="card-name">Bryan Hankins</div>
+        <div class="card-role">Full Stack Developer</div>
+        <div class="card-info">
+          <div class="card-info-row">
+            <span class="card-info-label">Location</span>
+            <span class="card-info-val">Evansville, IN 47720</span>
+          </div>
+          <div class="card-info-row">
+            <span class="card-info-label">Email</span>
+            <span class="card-info-val"><a href="mailto:bryanhankinsdev@gmail.com">bryanhankinsdev@gmail.com</a></span>
+          </div>
+          <div class="card-info-row">
+            <span class="card-info-label">Phone</span>
+            <span class="card-info-val">812-250-8844</span>
+          </div>
+          <div class="card-info-row">
+            <span class="card-info-label">Skype</span>
+            <span class="card-info-val">live:.cid.b4ebc29a26cbcea9</span>
+          </div>
+        </div>
+        <div class="card-socials">
+          <a href="https://www.linkedin.com/in/bryan-hankins-8668811ab/" target="_blank" rel="noopener" title="LinkedIn" class="card-social-link">in</a>
+          <a href="https://github.com/BryanHankins/" target="_blank" rel="noopener" title="GitHub" class="card-social-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="https://twitter.com/hankins_br10947" target="_blank" rel="noopener" title="Twitter/X" class="card-social-link">𝕏</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">6 Years. Dozens of<br><span>Delivered Systems.</span></h2>
+        <p>I'm a full stack developer with over 6 years of professional experience building everything from AI-powered enterprise platforms to social media applications and trading systems. I own the <strong>entire development lifecycle</strong> — from architecture and design to deployment and maintenance.</p>
+        <p>My recent work has pushed deep into <strong>AI engineering</strong>: I designed and deployed an intelligent medical coding platform that answers ICD-10 and CPT coding queries with an 80% success rate — backed by a custom MySQL database I built from the ground up. I've also built AI systems that eliminated over $1 million in hospital administrative overhead.</p>
+
+        <div class="highlight-box">
+          <p>Most recently, I developed a <strong>complete ICD-10 and CPT medical coding database and AI chatbot</strong>, achieving an 80% answer accuracy rate on complex clinical coding queries — a production-grade system used in real healthcare workflows.</p>
+        </div>
+
+        <p>Outside of work I spend time with my family, volunteer at the food kitchen, help save animals, and yes — I feed ducks.</p>
+
+        <div class="certs-row">
+          <span class="cert-badge">30+ Certifications</span>
+          <a href="https://www.linkedin.com/in/bryan-hankins-8668811ab/" target="_blank" class="btn-ghost" style="padding: 0.45rem 1rem; font-size: 0.72rem;">View on LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-card-num">6+</div>
+            <div class="stat-card-label">Years in industry</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num">80%</div>
+            <div class="stat-card-label">AI coding accuracy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num">200+</div>
+            <div class="stat-card-label">Apps migrated</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num">$1M+</div>
+            <div class="stat-card-label">Cost savings delivered</div>
+          </div>
+        </div>
+
+        <div class="stat-card" style="margin-bottom: 1rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem;">Core Strengths</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AI Engineering</span>
+            <span class="skill-tag">System Architecture</span>
+            <span class="skill-tag">Full Stack Development</span>
+            <span class="skill-tag">Medical Tech</span>
+            <span class="skill-tag">Cloud Infrastructure</span>
+            <span class="skill-tag">DevOps</span>
+            <span class="skill-tag">Database Design</span>
+            <span class="skill-tag">API Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title">Technical <span>Skills</span></h2>
+    <p class="section-subtitle">A deep toolkit built over 6 years of production work across front-end, back-end, cloud, and AI systems.</p>
+
+    <div class="skills-layout">
+      <div class="skill-group">
+        <div class="skill-group-title">Front-End Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Redux</span>
+          <span class="skill-tag">Three.js</span>
+          <span class="skill-tag">Gatsby</span>
+          <span class="skill-tag">Tailwind</span>
+          <span class="skill-tag">Bootstrap</span>
+          <span class="skill-tag">Shopify</span>
+          <span class="skill-tag">WordPress</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Back-End Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Go</span>
+          <span class="skill-tag">Rust</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">GraphQL</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">OAuth 2.0</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">AI & Data</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AI Integration</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">Medical Coding AI</span>
+          <span class="skill-tag">Process Automation</span>
+          <span class="skill-tag">Data Pipelines</span>
+          <span class="skill-tag">Web Scraping</span>
+          <span class="skill-tag">Selenium</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Databases</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Oracle</span>
+          <span class="skill-tag">SQLite</span>
+          <span class="skill-tag">DynamoDB</span>
+          <span class="skill-tag">DocumentDB</span>
+          <span class="skill-tag">Redis</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS EC2</span>
+          <span class="skill-tag">AWS S3</span>
+          <span class="skill-tag">Lambda</span>
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Google Cloud</span>
+          <span class="skill-tag">DigitalOcean</span>
+          <span class="skill-tag">Heroku</span>
+          <span class="skill-tag">Netlify</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Tools & Process</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git / BitBucket</span>
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Adobe XD</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Stripe API</span>
+          <span class="skill-tag">ManageWP</span>
+          <span class="skill-tag">cPanel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Work History</div>
+    <h2 class="section-title">Professional <span>Experience</span></h2>
+    <p class="section-subtitle">6+ years working across startups, agencies, and enterprise clients — building full-stack solutions that ship.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item featured">
+        <div class="timeline-company">3D Misc</div>
+        <div class="timeline-role">Full Stack Developer · AI Integration</div>
+        <ul class="timeline-bullets">
+          <li>Built a fully functional social media website from the ground up, handling all aspects from backend architecture to front-end UI.</li>
+          <li>Compiled a comprehensive Excel database of every registered business in Evansville, Indiana — supporting local business intelligence and outreach tools.</li>
+          <li>Implemented AI-powered automation for social media workflows, reducing manual overhead and increasing content throughput.</li>
+        </ul>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Full Stack</span>
+          <span class="timeline-tag">AI Automation</span>
+          <span class="timeline-tag">Social Media</span>
+        </div>
+      </div>
+
+
+
+      <div class="timeline-item">
+        <div class="timeline-company">GeoTech Solutions</div>
+        <div class="timeline-role">Full Stack Developer · Web & Mobile</div>
+        <ul class="timeline-bullets">
+          <li>Developed a multi-page web and mobile application using React, CSS, HTML, and JavaScript — covering homepage, checkout, and dashboard.</li>
+          <li>Independently managed and maintained more than 20 client websites simultaneously.</li>
+          <li>Automated server provisioning on AWS and configured CI/CD pipelines with Jenkins for reliable deployments.</li>
+          <li>Integrated Stripe payment processing into checkout flows, handling live API calls for credit card transactions.</li>
+        </ul>
+        <div class="timeline-tags">
+          <span class="timeline-tag">React</span>
+          <span class="timeline-tag">AWS</span>
+          <span class="timeline-tag">CI/CD</span>
+          <span class="timeline-tag">Stripe</span>
+          <span class="timeline-tag">Jenkins</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-company">Media Mix Communications</div>
+        <div class="timeline-role">Front-End Developer · UI/UX</div>
+        <ul class="timeline-bullets">
+          <li>Produced multiple project iterations from basic wireframes through to final production-quality designs.</li>
+          <li>Led a full company website redesign, driving meaningful improvement in user satisfaction scores.</li>
+          <li>Conducted user research and usability testing to ground design decisions in real user behavior.</li>
+        </ul>
+        <div class="timeline-tags">
+          <span class="timeline-tag">UI/UX</span>
+          <span class="timeline-tag">Wireframing</span>
+          <span class="timeline-tag">User Research</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-company">Bryan Hankins Web Services</div>
+        <div class="timeline-role">Full Stack Developer · Founder</div>
+        <ul class="timeline-bullets">
+          <li>Designed and implemented a PostgreSQL database for chat and help desk applications using one-to-many and many-to-many relationships for optimal scalability.</li>
+          <li>Managed the full development process across multiple client projects — UI design, API integration, deployment, and QA testing.</li>
+          <li>Delivered client-facing applications using HTML5, CSS, JavaScript, and React.</li>
+        </ul>
+        <div class="timeline-tags">
+          <span class="timeline-tag">PostgreSQL</span>
+          <span class="timeline-tag">React</span>
+          <span class="timeline-tag">Node.js</span>
+          <span class="timeline-tag">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-company">Freelance</div>
+        <div class="timeline-role">Front-End Developer</div>
+        <ul class="timeline-bullets">
+          <li>Developed the front end for a virtual lab and eCommerce platform for chemical sales using React, Redux, and GraphQL.</li>
+          <li>Designed dynamic, multi-browser-compatible pages using HTML, CSS, jQuery, and JavaScript.</li>
+          <li>Built reusable UI components leveraging NPM libraries and modern CSS frameworks.</li>
+        </ul>
+        <div class="timeline-tags">
+          <span class="timeline-tag">React</span>
+          <span class="timeline-tag">Redux</span>
+          <span class="timeline-tag">GraphQL</span>
+          <span class="timeline-tag">eCommerce</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">My Work</div>
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+    <p class="section-subtitle">A mix of production enterprise systems and open-source work. Additional projects available upon request.</p>
+
+    <div class="projects-grid">
+
+      <!-- NDA 1 - FEATURED -->
+      <div class="project-card confidential featured">
+        <span class="project-type-badge badge-ai">AI · Healthcare</span>
+        <div class="project-title">Intelligent Medical Coding System</div>
+        <p class="project-desc">Designed and built a production-grade AI chatbot and MySQL database for ICD-10 and CPT medical coding. Answers complex clinical coding queries with an 80% success rate, dramatically reducing coder workload and error rates.</p>
+        <div style="display: flex; gap: 2rem; margin-bottom: 1.25rem;">
+          <div>
+            <div class="impact-metric">80%</div>
+            <div class="impact-label">Answer accuracy</div>
+          </div>
+          <div>
+            <div class="impact-metric">ICD-10</div>
+            <div class="impact-label">+ CPT coverage</div>
+          </div>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">AI / LLM</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">Healthcare</span>
+        </div>
+        <span class="confidential-note">NDA — Details Upon Request</span>
+      </div>
+
+      <!-- NDA 2 -->
+      <div class="project-card confidential">
+        <span class="project-type-badge badge-nda">Enterprise · Infrastructure</span>
+        <div class="project-title">Enterprise VM Orchestration Platform</div>
+        <p class="project-desc">Led the design and implementation of scalable VM environments supporting 300+ applications. Built a custom orchestration framework for engineering laptop deployments and successfully migrated 200+ applications to Windows 11.</p>
+        <div style="display: flex; gap: 2rem; margin-bottom: 1.25rem;">
+          <div>
+            <div class="impact-metric">300+</div>
+            <div class="impact-label">Apps supported</div>
+          </div>
+          <div>
+            <div class="impact-metric">200+</div>
+            <div class="impact-label">Apps migrated</div>
+          </div>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">Virtualization</span>
+          <span class="tech-tag">Windows 11</span>
+          <span class="tech-tag">Orchestration</span>
+          <span class="tech-tag">DevOps</span>
+        </div>
+        <span class="confidential-note">NDA — Details Upon Request</span>
+      </div>
+
+      <!-- NDA 3 -->
+      <div class="project-card confidential">
+        <span class="project-type-badge badge-ai">AI · Automation</span>
+        <div class="project-title">AI Drug Testing Automation Platform</div>
+        <p class="project-desc">Engineered an AI-powered platform that automates drug-testing administrative workflows, saving an average of 1 hour per employee per day. Integrated with existing HR and compliance systems.</p>
+        <div style="display: flex; gap: 2rem; margin-bottom: 1.25rem;">
+          <div>
+            <div class="impact-metric">1hr</div>
+            <div class="impact-label">Saved per employee</div>
+          </div>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">AI</span>
+          <span class="tech-tag">Automation</span>
+          <span class="tech-tag">HR Tech</span>
+          <span class="tech-tag">Compliance</span>
+        </div>
+        <span class="confidential-note">NDA — Details Upon Request</span>
+      </div>
+
+      <!-- NDA 4 -->
+      <div class="project-card confidential">
+        <span class="project-type-badge badge-ai">AI · Healthcare</span>
+        <div class="project-title">AI Hospital Administrative Platform</div>
+        <p class="project-desc">Built an AI-driven administrative system for a medical hospital that optimized internal operations, streamlined staff workflows, and reduced annual operational costs by over $1 million.</p>
+        <div style="display: flex; gap: 2rem; margin-bottom: 1.25rem;">
+          <div>
+            <div class="impact-metric">$1M+</div>
+            <div class="impact-label">Cost reduction</div>
+          </div>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">AI</span>
+          <span class="tech-tag">Healthcare</span>
+          <span class="tech-tag">Process Optimization</span>
+        </div>
+        <span class="confidential-note">NDA — Details Upon Request</span>
+      </div>
+
+      <!-- Public 1 -->
+      <div class="project-card">
+        <span class="project-type-badge badge-open">Open Source</span>
+        <div class="project-title"><a href="https://xilo.io" target="_blank">Xilo — Social Media Platform</a></div>
+        <p class="project-desc">Complete backend for a modern social media web application built with Go. Features secure OAuth 2.0 authentication, real-time messaging, and a robust API powering the entire social graph.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Go</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">OAuth 2.0</span>
+          <span class="tech-tag">Rust</span>
+        </div>
+        <a href="https://xilo.io" target="_blank" class="project-link">View Live Site</a>
+      </div>
+
+      <!-- Public 2 -->
+      <div class="project-card">
+        <span class="project-type-badge badge-open">Open Source</span>
+        <div class="project-title"><a href="https://github.com/BryanHankins/chess-app" target="_blank">Chess App</a></div>
+        <p class="project-desc">Full-featured chess platform with a built-in AI opponent — which has since surpassed its creator's skill level. Built with a Python/Rust engine and a TypeScript front-end backed by MySQL.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">Rust</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">MySQL</span>
+        </div>
+        <a href="https://github.com/BryanHankins/chess-app" target="_blank" class="project-link">View GitHub</a>
+      </div>
+
+      <!-- Public 3 -->
+      <div class="project-card">
+        <span class="project-type-badge badge-open">Open Source</span>
+        <div class="project-title"><a href="https://github.com/BryanHankins/eevinone" target="_blank">Eevinone</a></div>
+        <p class="project-desc">Aggregated data from 7 separate websites into one unified platform using best-practice web scraping with Selenium and Python, served through a Next.js front-end.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Selenium</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">SCSS</span>
+          <span class="tech-tag">Next.js</span>
+        </div>
+        <a href="https://github.com/BryanHankins/eevinone" target="_blank" class="project-link">View GitHub</a>
+      </div>
+
+      <!-- Public 4 -->
+      <div class="project-card">
+        <span class="project-type-badge badge-open">Open Source · Game</span>
+        <div class="project-title"><a href="https://github.com/BryanHankins/Octogun" target="_blank">Octogun</a></div>
+        <p class="project-desc">Fast-paced 8-directional shooter game built for fun. A JavaScript/Node project with custom SCSS styling and Bootstrap for rapid UI scaffolding.</p>
+        <div class="project-tech">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Bootstrap</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">SCSS</span>
+          <span class="tech-tag">Node.js</span>
+        </div>
+        <a href="https://github.com/BryanHankins/Octogun" target="_blank" class="project-link">View GitHub</a>
+      </div>
+
+      <!-- Rust Audio Player -->
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(196,115,106,0.1);color:var(--accent3);border:1px solid rgba(196,115,106,0.2);">Rust · Systems</span>
+        <div class="project-title"><a href="https://github.com/BryanHankins/AudioPlayerBackend" target="_blank">Rust Audio Player</a></div>
+        <p class="project-desc">A custom audio player backend written in Rust using the Rodio audio library. Tackled the complexities of WebAssembly integration and cross-format audio support — a deep dive into systems-level Rust engineering. Supports .wav and most non-mp3 audio formats.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Rust</span>
+          <span class="tech-tag">Rodio</span>
+          <span class="tech-tag">WebAssembly</span>
+          <span class="tech-tag">Systems Programming</span>
+        </div>
+        <a href="https://github.com/BryanHankins/AudioPlayerBackend" target="_blank" class="project-link">View GitHub</a>
+      </div>
+
+      <!-- Keyboard Simulator -->
+      <div class="project-card">
+        <span class="project-type-badge badge-open">Open Source · Interactive</span>
+        <div class="project-title"><a href="https://github.com/BryanHankins/Keyboard" target="_blank">Mechanical Keyboard Simulator</a></div>
+        <p class="project-desc">An interactive browser-based simulation of a mechanical keyboard — complete with visual key animations that respond to real keystrokes as you type. A fun exercise in DOM event handling, CSS animation, and replicating physical hardware behavior in the browser.</p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">DOM Events</span>
+        </div>
+        <a href="https://github.com/BryanHankins/Keyboard" target="_blank" class="project-link">View GitHub</a>
+      </div>
+
+      <!-- Drawing App -->
+      <div class="project-card">
+        <span class="project-type-badge badge-open">Open Source · Tool</span>
+        <div class="project-title"><a href="https://github.com/BryanHankins/Drawingapp" target="_blank">Drawing App</a></div>
+        <p class="project-desc">A Python-based drawing application built from scratch. Demonstrates GUI programming, real-time canvas rendering, and event-driven architecture in Python — built purely for the joy of making something creative with code.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">GUI</span>
+          <span class="tech-tag">Canvas Rendering</span>
+        </div>
+        <a href="https://github.com/BryanHankins/Drawingapp" target="_blank" class="project-link">View GitHub</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's <span>Work Together</span></h2>
+    <p class="section-subtitle">Open to new full-time roles, contract work, and interesting projects. Reach out — I respond fast.</p>
+
+    <div class="contact-layout">
+      <div>
+        <div class="contact-item">
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-val"><a href="mailto:bryanhankinsdev@gmail.com">bryanhankinsdev@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Phone</span>
+          <span class="contact-item-val">812-250-8844</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Location</span>
+          <span class="contact-item-val">Evansville, IN 47720, USA</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">LinkedIn</span>
+          <span class="contact-item-val"><a href="https://www.linkedin.com/in/bryan-hankins-8668811ab/" target="_blank">linkedin.com/in/bryan-hankins</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">GitHub</span>
+          <span class="contact-item-val"><a href="https://github.com/BryanHankins/" target="_blank">github.com/BryanHankins</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Skype</span>
+          <span class="contact-item-val">live:.cid.b4ebc29a26cbcea9</span>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <!-- Spam protection honeypot (hidden) -->
+        <input type="hidden" name="bot-field">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="phone">Phone (optional)</label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">© 2025 Bryan Hankins. All rights reserved.</span>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/bryan-hankins-8668811ab/" target="_blank" class="footer-social-link">LinkedIn</a>
+    <a href="https://github.com/BryanHankins/" target="_blank" class="footer-social-link">GitHub</a>
+    <a href="https://twitter.com/hankins_br10947" target="_blank" class="footer-social-link">Twitter</a>
+    <a href="docs/Bryan Hankinsresume.pdf" target="_blank" class="footer-social-link">Resume</a>
+  </div>
+</footer>
+
+<a href="#hero" class="back-to-top" title="Back to top">↑</a>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+
+  // Contact form — Netlify Forms AJAX submit
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const submitBtn = contactForm.querySelector('.form-submit');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const original = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      const body = new URLSearchParams(new FormData(contactForm)).toString();
+
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body
+        });
+
+        if (res.ok) {
+          submitBtn.textContent = '✓ Message Sent!';
+          submitBtn.style.background = 'var(--accent2)';
+          contactForm.reset();
+        } else {
+          throw new Error('Non-OK response');
+        }
+      } catch {
+        submitBtn.textContent = 'Error — Try Again';
+        submitBtn.style.background = 'var(--accent3)';
+        submitBtn.disabled = false;
+        setTimeout(() => {
+          submitBtn.textContent = original;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+    });
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
